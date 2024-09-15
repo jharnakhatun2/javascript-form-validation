@@ -20,15 +20,15 @@ const isRequired = value => value === '' ? false : true ;
 const isBetween = (length, min, max) => length < min || length > max ? false : true;
 
 // email is valid form
-const emailRegEx = (email) =>{
+const emailRegEx = (value) =>{
     const regEx = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return regEx.text(email);
+    return regEx.text(value);
 }
 
 // password strong pattern
-const isPasswordStrong = (password) =>{
+const isPasswordStrong = (value) =>{
     const re = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})");
-    return re.test(password);
+    return re.test(value);
 }
 
 
@@ -44,3 +44,36 @@ const confirmPasswordEl = form.elements['confirm-password'];
 form.addEventListener('submit', (e)=>{
     e.preventDefault();
 })
+
+// input field validating functions
+// Validate the username field
+const checkUsername = () =>{
+    let valid = false;
+    const min = 3;
+    const max = 25;
+    const username = usernameEl.value.trim();
+    if(!isRequired(username)){
+        showError(usernameEl, "Username cannot be blank");
+    }else if(!isBetween(username.length, min, max)){
+        showError(usernameEl, `Username must be between ${min} and ${max} characters.`);
+    }else{
+        showSuccess(usernameEl);
+        valid = true;
+    }
+    return valid;
+}
+
+// Validate the email field
+const checkEmail = () =>{
+    let valid = false;
+    const email = emailEl.value.trim();
+    if(!isRequired(email)){
+        showError(emailEl, "Email cannot be blank.");
+    }else if(!emailRegEx(email)){
+        showError(emailEl, "Email is not valid.");
+    }else{
+        showSuccess(emailEl);
+        valid = true;
+    }
+    return valid;
+}
