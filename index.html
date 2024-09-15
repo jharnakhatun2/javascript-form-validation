@@ -8,32 +8,29 @@
 </head>
 <body>
   <div class="container">
-    <h1>Signup Form</h1>
+    <h1 class="header">Signup Form</h1>
     <form action="/" method="post" id="myForm">
         <div class="field">
-            <label for="username">Name :</label>
-            <input type="text" name="username" id="username" autocomplete="off">
+            <input type="text" name="username" id="username" placeholder="User Name" autocomplete="off">
+            <small></small>
+        </div>
+        <div class="field">  
+            <input type="email" name="email" id="email" placeholder="Email" autocomplete="off">
             <small></small>
         </div>
         <div class="field">
-            <label for="email"> Email :</label>
-            <input type="email" name="email" id="email" autocomplete="off">
+            <input type="password" name="password" id="password" placeholder="Password" autocomplete="off">
             <small></small>
         </div>
         <div class="field">
-            <label for="password">Password : </label>
-            <input type="password" name="password" id="password" autocomplete="off">
-            <small></small>
+            <input type="password" name="confirm-password" id="confirm-password" placeholder="Confirm Password" autocomplete="off">
         </div>
         <div class="field">
-            <label for="confirm-password">Confirm Password :</label>
-            <input type="password" name="confirm-password" id="confirm-password" autocomplete="off">
-        </div>
-        <div class="field">
-            <input type="submit" value="Submit" class="full">
+            <input type="submit" value="Submit" >
         </div>
     </form>
   </div>
+
 
    <script src="script.js"></script>
 </body>
