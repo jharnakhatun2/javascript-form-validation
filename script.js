@@ -77,3 +77,34 @@ const checkEmail = () =>{
     }
     return valid;
 }
+
+// Validate the password field
+const checkPassword = () =>{
+    let valid = false;
+    const password = passwordEl.value.trim();
+    if(!isRequired(password)){
+        showError(passwordEl, "Password cannot be blank.");
+    }else if(!isPasswordStrong(password)){
+        showError(passwordEl, 'Password must has at least 8 characters that include at least 1 lowercase character, 1 uppercase characters, 1 number, and 1 special character in (!@#$%^&*)');
+    }else{
+        showSuccess(passwordEl);
+        valid = true;
+    }
+    return valid;
+}
+
+// Validate the confirm password field
+const checkConfirmPassword = () =>{
+    let valid = false;
+    const password = passwordEl.value.trim();
+    const confirmPassword = confirmPasswordEl.value.trim();
+    if(!isRequired(confirmPassword)){
+        showError(confirmPasswordEl, "Password cannot be blank.");
+    }else if(confirmPassword !== password ){
+        showError(confirmPasswordEl, 'Confirm password does not match');
+    }else{
+        showSuccess(confirmPasswordEl);
+        valid = true;
+    }
+    return valid;
+}
