@@ -7,7 +7,30 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  
+  <div class="container">
+    <h1 class="header">Signup Form</h1>
+    <form action="/" method="post" id="myForm">
+        <div class="field">
+            <input type="text" name="username" id="username" placeholder="User Name" autocomplete="off">
+            <small></small>
+        </div>
+        <div class="field">  
+            <input type="email" name="email" id="email" placeholder="Email" autocomplete="off">
+            <small></small>
+        </div>
+        <div class="field">
+            <input type="password" name="password" id="password" placeholder="Password" autocomplete="off">
+            <small></small>
+        </div>
+        <div class="field">
+            <input type="password" name="confirm-password" id="confirm-password" placeholder="Confirm Password" autocomplete="off">
+        </div>
+        <div class="field">
+            <input type="submit" value="Submit" >
+        </div>
+    </form>
+  </div>
+
 
    <script src="script.js"></script>
 </body>
