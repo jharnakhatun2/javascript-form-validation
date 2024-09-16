@@ -23,7 +23,8 @@ This project is a simple registration form with client-side validation using Jav
 - **Confirm Password**: Ensures that the password matches.
 
 ## Validation Rules
-- Input fields are validated as the user types with a **300ms debounce delay**.
-- If a field is invalid, an error message is shown under the respective field.
-- Form submission is prevented until all inputs are valid.
+- Username cannot be blank and has at least 3 characters and cannot be longer than 25 characters.
+- Email is mandatory and valid.
+- Password has eight characters or longer. And it must contain 1 lowercase character, 1 uppercase character, 1 number, and at least one special character in this set (`!@#$%^&*`).
+- The confirm password must be the same as the password.
 
