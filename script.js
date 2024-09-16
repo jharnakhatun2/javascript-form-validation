@@ -20,9 +20,9 @@ const isRequired = value => value === '' ? false : true ;
 const isBetween = (length, min, max) => length < min || length > max ? false : true;
 
 // email is valid form
-const emailRegEx = (value) =>{
+const isEmailValidForm = (emailValue) =>{
     const regEx = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return regEx.text(value);
+    return regEx.test(emailValue);
 }
 
 // password strong pattern
@@ -38,12 +38,9 @@ const usernameEl = form.elements['username'];
 const emailEl = form.elements['email'];
 const passwordEl = form.elements['password'];
 const confirmPasswordEl = form.elements['confirm-password'];
-// console.log();
+console.log(confirmPasswordEl);
 
-// add submit eventListener with form element
-form.addEventListener('submit', (e)=>{
-    e.preventDefault();
-})
+
 
 // input field validating functions
 // Validate the username field
@@ -69,7 +66,7 @@ const checkEmail = () =>{
     const email = emailEl.value.trim();
     if(!isRequired(email)){
         showError(emailEl, "Email cannot be blank.");
-    }else if(!emailRegEx(email)){
+    }else if(!isEmailValidForm(email)){
         showError(emailEl, "Email is not valid.");
     }else{
         showSuccess(emailEl);
@@ -85,7 +82,7 @@ const checkPassword = () =>{
     if(!isRequired(password)){
         showError(passwordEl, "Password cannot be blank.");
     }else if(!isPasswordStrong(password)){
-        showError(passwordEl, `Password must has at least 8 characters that include at least 1 lowercase character, 1 uppercase characters, 1 number, and 1 special character in (!@#$%^&*)`);
+        showError(passwordEl, `Password must has at least 8 characters that include at least 1 lowercase character,\ 1 uppercase characters, 1 number, and 1 special character in (!@#$%^&*)`);
     }else{
         showSuccess(passwordEl);
         valid = true;
@@ -93,7 +90,7 @@ const checkPassword = () =>{
     return valid;
 }
 
-// Validate the email field
+// Validate the confirm password field
 const checkConfirmPassword = () =>{
     let valid = false;
     const password = passwordEl.value.trim();
@@ -108,3 +105,21 @@ const checkConfirmPassword = () =>{
     }
     return valid;
 }
+
+// add submit eventListener with form element
+form.addEventListener('submit', (e)=>{
+    e.preventDefault();
+
+    let isUsernameValid = checkUsername(),
+        isEmailValid = checkEmail(),
+        isPasswordValid = checkPassword(),
+        isConfirmPasswordValid = checkConfirmPassword();
+    
+    let isFormValid = isUsernameValid && isEmailValid && isPasswordValid && isConfirmPasswordValid;
+
+    // if all conditions are true form will submit
+    if(isFormValid){
+        form.submit();
+    }
+    
+})
