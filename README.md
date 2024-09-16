@@ -1,5 +1,7 @@
 # Registration Form with JavaScript Validation (Debounce Technique)
-## 🔗 Preview Live : [https://javascript-form-validation-pied.vercel.app/]
+## 🔗 Live Link: 
+Preview Live : https://javascript-form-validation-pied.vercel.app/
+
 ## Project Overview
 This project is a simple registration form with client-side validation using JavaScript. The form validation uses the **debounce technique** to optimize performance by reducing the number of validation function calls as the user types.
 
