@@ -122,4 +122,35 @@ form.addEventListener('submit', (e)=>{
         form.submit();
     }
     
-})
+});
+
+// debounce function to increase performance
+const debounce = (fn,delay=500) =>{
+    let timeoutId;
+    if(timeoutId){
+        clearTimeout(timeoutId);
+    }
+return function(...args){
+    timeoutId = setTimeout(()=>{
+        fn.apply(null, args)
+    }, delay)
+}
+}
+
+// pass the input event handler to the debounce() function to debounce it:
+form.addEventListener('input', debounce(function(e){
+    switch(e.target.id){
+        case 'username':
+            checkUsername();
+            break;
+        case 'email':
+            checkEmail();
+            break;
+        case 'password':
+            checkPassword();
+            break;
+        case 'confirm-password':
+            checkConfirmPassword();
+            break;
+    }
+}))
