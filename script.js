@@ -38,7 +38,8 @@ const usernameEl = form.elements['username'];
 const emailEl = form.elements['email'];
 const passwordEl = form.elements['password'];
 const confirmPasswordEl = form.elements['confirm-password'];
-console.log(confirmPasswordEl);
+const togglePassword = document.querySelector('#toggle1')
+const toggleConfirmPassword = document.querySelector('#toggle2')
 
 
 
@@ -105,6 +106,20 @@ const checkConfirmPassword = () =>{
     }
     return valid;
 }
+//toggle password
+
+    togglePassword.addEventListener("click", function(){
+        const type = passwordEl.getAttribute('type') === "password" ? "text" : "password";
+        passwordEl.setAttribute('type', type);
+        togglePassword.classList.toggle('bi-eye')
+    })
+//toggle confirm  password
+
+toggleConfirmPassword.addEventListener("click", function(){
+        const type = confirmPasswordEl.getAttribute('type') === "password" ? "text" : "password";
+        confirmPasswordEl.setAttribute('type', type);
+        toggleConfirmPassword.classList.toggle('bi-eye')
+    })
 
 // add submit eventListener with form element
 form.addEventListener('submit', (e)=>{

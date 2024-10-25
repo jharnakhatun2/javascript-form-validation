@@ -70,7 +70,7 @@ font-weight: bold;
 #password{
     position: relative;
 }
-#togglePassword{
+.bi-eye-slash{
     position: absolute;
     right: 40px;
     cursor: pointer;
