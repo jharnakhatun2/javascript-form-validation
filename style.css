@@ -42,6 +42,7 @@ form *{
     margin-top: -10px;
 }
 .field{
+    position: relative;
     margin: 10px 0;
 }
 input{
@@ -67,16 +68,18 @@ font-weight: bold;
 .error{
     color: red;
 }
-#password{
-    position: relative;
-}
+
 .bi-eye-slash{
     position: absolute;
-    right: 40px;
+    right: 8px;
+    top: 17px;
     cursor: pointer;
 }
 
-
+small {
+    display: block;
+    margin-top: 4px;
+  }
 @media only screen and (max-width: 600px) {
     body{
         overflow: visible;
