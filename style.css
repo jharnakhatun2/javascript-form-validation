@@ -1,4 +1,5 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css");
+
 body {  
     width: 100vw;
     height: 100vh;
@@ -42,16 +43,18 @@ form *{
     margin-top: -10px;
 }
 .field{
+    width: 100%;
     position: relative;
     margin: 10px 0;
 }
 input{
+    box-sizing: border-box;
     display: flex;
     height: 50px;
     width: 100%;
     background-color: rgba(255,255,255,0.07);
     border-radius: 3px;
-    padding: 0 10px;
+    padding-left: 10px;
     font-size: 14px;
     font-weight: 300;
 }
